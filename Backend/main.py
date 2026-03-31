@@ -7,6 +7,7 @@ from app.agents.research_agent import generate_answer
 from app.memory.conversation_memory import ConversationMemory
 from app.agents.query_rewriter import rewrite_query
 from app.services.reranker import rerank
+import os
 
 memory = ConversationMemory()
 
@@ -24,7 +25,7 @@ def add_papers_to_vectorstore(query, vectorstore):
     papers = fetch_papers(query)
     if not papers:
       print("⚠️ Using previous knowledge (no new papers)")
-
+    IS_PROD = os.getenv("RENDER") is not None
     for paper in papers:
         title = paper["title"]
 
@@ -33,7 +34,9 @@ def add_papers_to_vectorstore(query, vectorstore):
             continue
 
         print("\n Adding new paper:", title)
-
+        if IS_PROD:
+            print("⚡ Skipping PDF processing in production")
+            continue
         if paper["pdf_link"]:
             pdf_path = download_pdf(paper["pdf_link"])
             text = parse_pdf(pdf_path)

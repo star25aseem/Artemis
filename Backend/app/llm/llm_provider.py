@@ -16,7 +16,7 @@ def get_llm():
         from langchain_huggingface import HuggingFaceEndpoint
 
         return HuggingFaceEndpoint(
-            repo_id="mistralai/Mistral-7B-Instruct-v0.2",
-            temperature=0.3,
-            max_new_tokens=512
+           repo_id="google/flan-t5-base",
+           temperature=0.3,
+           max_new_tokens=256
         )

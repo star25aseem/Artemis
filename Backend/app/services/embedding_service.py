@@ -1,7 +1,8 @@
-from sentence_transformers import SentenceTransformer
+from langchain_huggingface import HuggingFaceEmbeddings
 
-model = SentenceTransformer("all-MiniLM-L6-v2")
+embedding_model = HuggingFaceEmbeddings(
+    model_name="sentence-transformers/all-MiniLM-L6-v2"
+)
 
 def embed_text(chunks):
-    embeddings = model.encode(chunks)
-    return embeddings
+    return embedding_model.embed_documents(chunks)
