@@ -1,0 +1,13 @@
+requests
+fastapi
+uvicorn
+langchain
+langchain-community
+langchain-ollama
+faiss-cpu
+sentence-transformers
+pymupdf
+numpy
+langchain-groq
+langchain-huggingface
+pydantic

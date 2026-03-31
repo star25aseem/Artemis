@@ -1,0 +1,30 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Models / embeddings
+*.bin
+*.pt
+*.safetensors
+
+# FAISS
+*.index
+*.pkl
+
+# HuggingFace cache
+.cache/
+huggingface/
+
+# PDFs
+*.pdf
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Env
+.env
