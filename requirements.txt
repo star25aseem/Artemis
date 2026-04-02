@@ -1,3 +1,4 @@
+gradio
 requests
 fastapi
 uvicorn
@@ -12,3 +13,4 @@ langchain-groq
 langchain-huggingface
 pydantic
 langchain-text-splitters
+
